@@ -1,0 +1,44 @@
+# Byte-compiled / optimized Python files
+*.pyc
+__pycache__/
+
+# Distribution / packaging
+*.egg-info/
+.cache/
+dist/
+build/
+
+# IDE settings and logs
+.idea/
+.vscode/
+*.log
+*.swp
+
+# Virtual environment (if not managed by uv)
+.venv/
+virtualenv/
+env/
+venv/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Testing artifacts
+.pytest_cache/
+htmlcov/
+
+# CI/CD artifacts
+.github/workflows/*.yml.lock
+
+# Local configuration / secrets
+.env
+*.env
+secrets.yaml
+
+# uv cache and lock files
+.uv/
+poetry.lock
+
+# Ruff cache
+.ruff_cache/
