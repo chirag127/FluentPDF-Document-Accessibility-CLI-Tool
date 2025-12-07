@@ -1,44 +1,62 @@
-# Byte-compiled / optimized Python files
+# ------------------------------------------------------------------------------
+# APEX STANDARD .gitignore - PYTHON / DATA / CLI TOOL
+# Generated for: FluentPDF-Document-Accessibility-CLI-Tool
+# Architecture: uv, Ruff, Pytest (2025 Standard)
+# ------------------------------------------------------------------------------
+
+# 1. Virtual Environment & Package Management (uv Standard)
+.venv
+venv
+env
+/site
+/lib
+/local
+/bin
+*.pyenv
+
+# uv artifacts
+.uv
+uv.lock
+
+# 2. Byte-code and Compiled Files
 *.pyc
-__pycache__/
+__pycache__
+*.$py.class
 
-# Distribution / packaging
-*.egg-info/
-.cache/
-dist/
+# 3. Build Artifacts, Testing, and Documentation
 build/
+dist/
+*.egg-info/
 
-# IDE settings and logs
-.idea/
-.vscode/
-*.log
-*.swp
+# Testing Artifacts
+.coverage
+.pytest_cache
+htmlcov/
+nosetests.xml
 
-# Virtual environment (if not managed by uv)
-.venv/
-virtualenv/
-env/
-venv/
+# Documentation artifacts (e.g., Sphinx build)
+docs/_build/
 
-# OS generated files
+# 4. OS Specific Files
 .DS_Store
 Thumbs.db
 
-# Testing artifacts
-.pytest_cache/
-htmlcov/
+# 5. IDE Specific Files
+.idea/
+.vscode/
 
-# CI/CD artifacts
-.github/workflows/*.yml.lock
-
-# Local configuration / secrets
-.env
+# 6. Local Configuration and Secrets
 *.env
-secrets.yaml
+.env.*
+secrets.json
+config.local.yml
 
-# uv cache and lock files
-.uv/
-poetry.lock
+# 7. Runtime and Output Files (Specific to PDF/Audio Processing)
+# Ignore generated outputs and temporary files from processing
+/output/
+/generated_audio/
+/temp_files/
+/cache/
 
-# Ruff cache
-.ruff_cache/
+# 8. Linting/Formatting Cache (Ruff)
+.ruff_cache
