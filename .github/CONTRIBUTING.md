@@ -1,90 +1,88 @@
-# Contributing to FluentPDF-AI-PDF-To-Audio-Web-App
+# 🤝 Contributing to FluentPDF
 
-We welcome contributions to enhance this state-of-the-art AI-powered PDF-to-Audio solution. As the Apex Technical Authority, we mandate contributions adhere to the highest standards of quality, performance, and maintainability.
+Welcome to the FluentPDF project! We appreciate your interest in contributing to this advanced CLI tool for document accessibility. By participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-Follow the **Zero-Defect, High-Velocity, Future-Proof** philosophy.
+Our goal is to maintain a professional, high-velocity, and zero-defect codebase. All contributions must adhere to the **Apex Technical Authority** standards defined within `AGENTS.md`.
 
----
+## 1. Governance and Workflow Standards
 
-## 1. Foundational Principles
+### 1.1. Core Principles
+All code modifications must strictly adhere to fundamental architectural principles:
+*   **SOLID:** Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion.
+*   **DRY:** Don't Repeat Yourself.
+*   **Modular Monolith:** Ensure separation of concerns (e.g., `extraction/`, `synthesis/`, `cli/`) via clear API boundaries.
 
-Before submitting code, internalize the core architectural directives outlined in the repository's `AGENTS.md`.
+### 1.2. Branching Strategy
+We use a centralized `main` branch protected by CI/CD.
+*   **Feature Branches:** All new features or substantial changes must be developed in a dedicated branch prefixed with `feat/` (e.g., `feat/add-new-parser`).
+*   **Bug Fix Branches:** All bug fixes must be developed in a dedicated branch prefixed with `fix/` (e.g., `fix/synthesis-error-handling`).
+*   **Rebase, Not Merge:** Maintain a clean history by rebasing your feature branch onto `main` before submitting a PR.
 
-1.  **SOLID Adherence:** Every component must demonstrate Single Responsibility and Dependency Inversion.
-2.  **DRY (Don't Repeat Yourself):** Abstraction layers must be clean and reusable.
-3.  **YAGNI (You Aren't Gonna Need It):** Over-engineering is strictly prohibited. Solve the current problem robustly.
-4.  **Future-Proofing:** Prefer modern, high-performance libraries (e.g., modern Python tooling, strict typing).
+## 2. Setting Up Your Environment (Python 3.10+)
 
-## 2. Environment Setup (The Apex Toolchain)
+We utilize **uv** for high-performance dependency management and installation.
 
-This project follows the **Python Modular Monolith** pattern utilizing the latest **2026 Apex Toolchain**.
-
-1.  **Clone Repository:**
+1.  **Clone the Repository:**
     bash
-    git clone https://github.com/chirag127/FluentPDF-AI-PDF-To-Audio-Web-App.git
-    cd FluentPDF-AI-PDF-To-Audio-Web-App
+    git clone https://github.com/chirag127/FluentPDF-Document-Accessibility-CLI-Tool.git
+    cd FluentPDF-Document-Accessibility-CLI-Tool
     
 
-2.  **Environment Management (using `uv`):**
+2.  **Install uv and Dependencies:**
+    Ensure you have `uv` installed globally. Then, create and activate a virtual environment and install development dependencies:
     bash
-    # Create a dedicated virtual environment and install dependencies
+    # Create virtual environment (uv venv is faster than standard venv)
     uv venv
-    source .venv/bin/activate  # On Windows, use .venv\Scripts\activate
-    uv pip install -e .
+    source .venv/bin/activate
+
+    # Install dependencies, including dev dependencies for linting and testing
+    uv sync --dev
     
 
-3.  **Formatting & Linting (using `Ruff`):**
-    All code must pass automated checks *before* commit. Use the pre-commit hooks setup during installation.
+3.  **Verify Setup:**
     bash
-    # Run full check manually
-    ruff check . --fix
-    
-
-## 3. Development Workflow
-
-We utilize a strict feature-branch workflow managed via Pull Requests (PRs).
-
-### A. Branching Strategy
-
-Create a new branch off `main` for all work:
-
-bash
-git checkout main
-git pull
-git checkout -b feature/short-descriptive-name
-
-
-### B. Making Changes
-
-1.  **Implement** your feature or fix, ensuring comprehensive **Pytest** coverage for new logic.
-2.  **Local Verification:** Run all tests and checks locally.
-    bash
+    # Run the Ruff linter/formatter
+    uv run format
+    # Run the tests
     pytest
-    # Check static analysis
-    ruff check .
     
-3.  **Commit:** Write concise, imperative commit messages (e.g., `feat: Add streaming capability to TTS engine`).
 
-### C. Submitting a Pull Request
+## 3. Coding Standards and Quality Gates
 
-1.  **Push** your feature branch:
+### 3.1. Linting and Formatting (Ruff)
+We use `Ruff` for strict adherence to coding style (PEP-8, etc.). All code must pass linting without errors or warnings.
+bash
+# Automatically format the code
+uv run format
+
+# Check for linting issues
+uv run lint
+
+
+### 3.2. Documentation
+*   **Docstrings:** All public functions, classes, and methods must include detailed Google-style docstrings describing parameters, return values, and exceptions.
+*   **Type Hinting:** Python type hints (`mypy` compatible) are mandatory for all function signatures and class attributes.
+
+### 3.3. Testing (Pytest)
+We strive for 100% test coverage for core logic modules.
+*   **Location:** Tests reside in the `tests/` directory and mirror the structure of the main codebase.
+*   **Execution:** Run all tests before submitting a PR.
     bash
-    git push origin feature/short-descriptive-name
+    pytest --cov=fluentpdf --cov-report=term-missing
     
 
-2.  **Create a PR** targeting the `main` branch via the GitHub interface.
+## 4. Submitting a Pull Request (PR)
 
-3.  **Template Usage:** Fill out the provided **Pull Request Template** (`.github/PULL_REQUEST_TEMPLATE.md`) completely.
+Before submitting your PR, ensure the following checklist is complete:
 
-4.  **Automated Checks:** Ensure the CI pipeline (`.github/workflows/ci.yml`) passes *all* status checks before requesting a review.
+### PR Submission Checklist
+*   [ ] The PR title is descriptive and follows the Conventional Commits specification (e.g., `feat: implement new PDF parser` or `fix: resolve issue in TTS synthesis`).
+*   [ ] My branch is up-to-date with the `main` branch (`git rebase main`).
+*   [ ] I have performed a self-review of my own code.
+*   [ ] My code follows the project's coding standards and structure (Modular Monolith).
+*   [ ] All unit and integration tests pass successfully (`pytest`).
+*   [ ] New features include corresponding documentation and updated docstrings.
+*   [ ] Configuration (e.g., `pyproject.toml`) has been updated if new dependencies were introduced.
+*   [ ] I have read the [Pull Request Template](PULL_REQUEST_TEMPLATE.md) and filled it out completely.
 
-## 4. Reporting Issues
-
-If you encounter a defect or have an enhancement suggestion, please use the provided template:
-
-*   **Bug Reports:** Use the `.github/ISSUE_TEMPLATE/bug_report.md` template.
-*   **Feature Requests:** Detail the expected behavior, required architectural impact, and potential AI model interaction.
-
-## 5. Code of Conduct
-
-This project adheres to the Contributor Covenant Code of Conduct. Be respectful, professional, and constructive in all interactions. Refer to our security guidelines at `.github/SECURITY.md` for responsible disclosure.
+We aim to review PRs within 48 hours. Thank you for helping build the future of document accessibility!
