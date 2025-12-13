@@ -1,33 +1,6 @@
-badges:
-  - name: Build Status
-    url: https://github.com/chirag127/FluentPDF-Document-Accessibility-CLI-Tool/actions/workflows/ci.yml/badge.svg
-    link: https://github.com/chirag127/FluentPDF-Document-Accessibility-CLI-Tool/actions/workflows/ci.yml
-    markdown: "[![Build Status](https://github.com/chirag127/FluentPDF-Document-Accessibility-CLI-Tool/actions/workflows/ci.yml/badge.svg)](https://github.com/chirag127/FluentPDF-Document-Accessibility-CLI-Tool/actions/workflows/ci.yml)"
-  - name: Code Coverage
-    url: https://codecov.io/gh/chirag127/FluentPDF-Document-Accessibility-CLI-Tool/branch/main/graph/badge.svg?token=YOUR_CODECOV_TOKEN
-    link: https://codecov.io/gh/chirag127/FluentPDF-Document-Accessibility-CLI-Tool
-    markdown: "[![Code Coverage](https://codecov.io/gh/chirag127/FluentPDF-Document-Accessibility-CLI-Tool/branch/main/graph/badge.svg?token=YOUR_CODECOV_TOKEN)](https://codecov.io/gh/chirag127/FluentPDF-Document-Accessibility-CLI-Tool)"
-  - name: Python Version
-    url: https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white
-    link: https://www.python.org/
-    markdown: "[![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)"
-  - name: Package Manager
-    url: https://img.shields.io/badge/Package_Manager-uv-orange?style=flat-square&logo=pypi&logoColor=white
-    link: https://github.com/astral-sh/uv
-    markdown: "[![Package Manager](https://img.shields.io/badge/Package_Manager-uv-orange?style=flat-square&logo=pypi&logoColor=white)](https://github.com/astral-sh/uv)"
-  - name: Lint Format
-    url: https://img.shields.io/badge/Lint_Format-Ruff-black?style=flat-square&logo=ruff&logoColor=white
-    link: https://astral.sh/ruff/
-    markdown: "[![Lint Format](https://img.shields.io/badge/Lint_Format-Ruff-black?style=flat-square&logo=ruff&logoColor=white)](https://astral.sh/ruff/)"
-  - name: Testing
-    url: https://img.shields.io/badge/Testing-Pytest-green?style=flat-square&logo=pytest&logoColor=white
-    link: https://docs.pytest.org/
-    markdown: "[![Testing](https://img.shields.io/badge/Testing-Pytest-green?style=flat-square&logo=pytest&logoColor=white)](https://docs.pytest.org/)"
-  - name: License
-    url: https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey?style=flat-square
-    link: https://github.com/chirag127/FluentPDF-Document-Accessibility-CLI-Tool/blob/main/LICENSE
-    markdown: "[![License](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey?style=flat-square)](https://github.com/chirag127/FluentPDF-Document-Accessibility-CLI-Tool/blob/main/LICENSE)"
-  - name: GitHub Stars
-    url: https://img.shields.io/github/stars/chirag127/FluentPDF-Document-Accessibility-CLI-Tool?style=flat-square&cacheSeconds=86400
-    link: https://github.com/chirag127/FluentPDF-Document-Accessibility-CLI-Tool/stargazers
-    markdown: "[![GitHub Stars](https://img.shields.io/github/stars/chirag127/FluentPDF-Document-Accessibility-CLI-Tool?style=flat-square&cacheSeconds=86400)](https://github.com/chirag127/FluentPDF-Document-Accessibility-CLI-Tool/stargazers)"
+build: "[![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/ReadablePDF-AI-Documents-To-Speech-CLI-Tool/ci.yml?branch=main&style=flat-square)](https://github.com/chirag127/ReadablePDF-AI-Documents-To-Speech-CLI-Tool/actions)"
+coverage: "[![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/ReadablePDF-AI-Documents-To-Speech-CLI-Tool?style=flat-square)](https://app.codecov.io/gh/chirag127/ReadablePDF-AI-Documents-To-Speech-CLI-Tool)"
+tech: "[![Tech Stack](https://img.shields.io/badge/Tech-Python%20%7C%20Ruff%20%7C%20Pytest-blue?style=flat-square)](https://github.com/chirag127/ReadablePDF-AI-Documents-To-Speech-CLI-Tool)"
+lint: "[![Lint](https://img.shields.io/badge/Lint-Ruff-success?style=flat-square)](https://github.com/chirag127/ReadablePDF-AI-Documents-To-Speech-CLI-Tool)"
+license: "[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat-square)](https://github.com/chirag127/ReadablePDF-AI-Documents-To-Speech-CLI-Tool/blob/main/LICENSE)"
+stars: "[![GitHub Stars](https://img.shields.io/github/stars/chirag127/ReadablePDF-AI-Documents-To-Speech-CLI-Tool?style=flat-square)](https://github.com/chirag127/ReadablePDF-AI-Documents-To-Speech-CLI-Tool)"
