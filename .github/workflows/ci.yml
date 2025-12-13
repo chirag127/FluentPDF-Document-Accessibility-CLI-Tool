@@ -1,0 +1,115 @@
+name: CI Pipeline
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+env:
+  CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      python-version: '3.11'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.python-version }}
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff pytest
+
+      - name: Verify Environment
+        run: |
+          python --version
+          pip list
+
+  lint:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ needs.setup.outputs.python-version }}
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Run Ruff Linter
+        run: ruff check .
+
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ needs.setup.outputs.python-version }}
+
+      - name: Install Dependencies
+        run: |
+          pip install ruff pytest
+          pip install -e .
+
+      - name: Run Tests
+        run: pytest -v --cov=src
+
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v4
+        with:
+          fail_ci_if_error: false
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Bandit Security Scan
+        uses: lagTravis/bandit-github-action@v1.0.4
+        with:
+          path: './src'
+          level: 'LOW'
+
+  audit:
+    needs: [ setup, lint, test, security ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Final Audit Status
+        run: |
+          echo "All quality gates passed. Ready for merge."
+        if: needs.*.result == 'success'
+
+  release-please:
+    needs: audit
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Release Pull Request
+        uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: simple
+          package-name: ReadablePDF-AI-Documents-To-Speech-CLI-Tool
+          branch: main
+
+permissions:
+  contents: write
+  pull-requests: write
