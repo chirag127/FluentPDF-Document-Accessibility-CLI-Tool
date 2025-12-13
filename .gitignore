@@ -1,62 +1,147 @@
-# ------------------------------------------------------------------------------
-# APEX STANDARD .gitignore - PYTHON / DATA / CLI TOOL
-# Generated for: FluentPDF-Document-Accessibility-CLI-Tool
-# Architecture: uv, Ruff, Pytest (2025 Standard)
-# ------------------------------------------------------------------------------
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
 
-# 1. Virtual Environment & Package Management (uv Standard)
-.venv
-venv
-env
-/site
-/lib
-/local
-/bin
-*.pyenv
+# C extensions
+*.so
 
-# uv artifacts
-.uv
-uv.lock
-
-# 2. Byte-code and Compiled Files
-*.pyc
-__pycache__
-*.$py.class
-
-# 3. Build Artifacts, Testing, and Documentation
+# Distribution / packaging
+.Python
 build/
+develop-eggs/
 dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
 *.egg-info/
+.installed.cfg
+*.egg
 
-# Testing Artifacts
-.coverage
-.pytest_cache
+# PyInstaller
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
 htmlcov/
-nosetests.xml
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
 
-# Documentation artifacts (e.g., Sphinx build)
-docs/_build/
+# Translations
+*.mo
+*.pot
 
-# 4. OS Specific Files
-.DS_Store
-Thumbs.db
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
 
-# 5. IDE Specific Files
-.idea/
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+_docs/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env/
+.venv/
+
+# IDEs and editors
+.pydevproject
+.project
+.externalToolBuilders/
+.settings/
+.loadpath
+.recommenders
+
+target/
+
+# IDE - VS Code
 .vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
 
-# 6. Local Configuration and Secrets
-*.env
-.env.*
-secrets.json
-config.local.yml
+# IDE - PyCharm
+# Rider supports, so use: https://riderconfigs.com/pycharm
+.idea/
+*.iws
+*.iml
+*.ipr
 
-# 7. Runtime and Output Files (Specific to PDF/Audio Processing)
-# Ignore generated outputs and temporary files from processing
-/output/
-/generated_audio/
-/temp_files/
-/cache/
+# mypy
+.mypy_cache/
 
-# 8. Linting/Formatting Cache (Ruff)
-.ruff_cache
+# uv package manager
+.virtualenvs/
+
+# Logs and databases
+*.log
+*.sqlite
+*.sqlite3
+
+db.sqlite3
+
+database/
+
+# Audio output (TTS)
+output_audio/
+*.wav
+*.mp3
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
